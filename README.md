@@ -20,12 +20,12 @@ You do not have to install notebook if you only run a server, but you could by t
 ```
 conda install notebook
 ```
-Using minrk's github repo which will help you install oauthenticator, dockerspawner and netifaces
+Optional step:  
+Using minrk's github repo which will help you install oauthenticator, dockerspawner and netifaces 
 ```
 git clone https://github.com/minrk/jupyterhub-pydata-2016 /srv/jupyterhub
 cd /srv/jupyterhub
 conda env create -f environment.yml
-
 ```
 Then add the conda-forge channel for have it manage packages for you
 ```
