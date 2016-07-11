@@ -20,7 +20,7 @@ You do not have to install notebook if you only run a server, but you could by t
 ```
 conda install notebook
 ```
-Using mrink's github repo which will help you install oauthenticator, dockerspawner and netifaces
+Using minrk's github repo which will help you install oauthenticator, dockerspawner and netifaces
 ```
 git clone https://github.com/minrk/jupyterhub-pydata-2016 /srv/jupyterhub
 cd /srv/jupyterhub
@@ -43,7 +43,7 @@ conda create -n py2 python=2 anaconda
 source activate py2
 ipython kernel install
 ```
-For R ()
+For R
 ```
 conda install -c r r-essentials
 conda create -n my-r-env -c r r-essentials
