@@ -1,16 +1,17 @@
 // queue()
-//     .defer(d3.json, "/all")
-//     .await(makeGraphs);
-
-var id = "#figure";
-
+// 	.defer(d3.csv, "/byYear/2014")
+// 	.defer(d3.csv, "/byYear/all")
+// 	.await(function(error, dataByYear, dataByAll){
+// 		makeGraphs(error,dataByYear,"#figure2");
+// 		makeGraphs(error,dataByAll,"#figure");
+// 	});
 queue()
-	.defer(d3.csv, "/byYear/2014")
-	.await(function(error, data){
-		makeGraphs(error,data);
+	.defer(d3.csv, "/byYear/all")
+	.await(function(error, dataByAll){
+		makeGraphs(error,dataByAll,"#figure");
 	});
 
-function makeGraphs(error, data) {
+function makeGraphs(error, data, id) {
 	var margin = {top: 50, right: 20, bottom: 10, left: 65},
     width = 800 - margin.left - margin.right,
     height = 400 - margin.top - margin.bottom;
@@ -152,11 +153,7 @@ function makeGraphs(error, data) {
 	  var movesize = width/2 - startp.node().getBBox().width/2;
 	  d3.selectAll(".legendbox").attr("transform", "translate(" + movesize  + ",0)");
 
-	// });
+	  // var slider = d3.slider().axis(true);
+	  // var pos = 0;
+	  // d3.select('#slider-button').on('click', function() { slider.slide_to(++pos); });
 };
-
-// make_graph("#figure", "/data/raw_data.csv");
-
-// make_graph("#figure2", "/data/raw_data2.csv");
-
-// make_graph("#figure3", "raw_data.csv");

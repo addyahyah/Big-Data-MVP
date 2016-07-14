@@ -6,14 +6,15 @@
   <link rel="stylesheet" href="/static/lib/css/keen-dashboards.css">
   <link rel="stylesheet" href="/static/lib/css/dc.css">
   <link rel="stylesheet" href="/static/css/custom.css">
-   <link rel="stylesheet" href="/static/css/styles.css">
+  <link rel="stylesheet" href="/static/css/styles.css">
+  <script type="text/javascript" src = "static/js/selectYear.js"></script>
 </head>
  <header>
   <nav id="header-nav" class = "navbar navbar-fixed-top navbar-default">
     <div class = "container-fluid">
        <div class="navbar-header">
               <div class="navbar-brand pull-left">
-                <a href="index.html"><h1>Rose-Hulman Big Data</h1></a>
+                <a href="/"><h1>Rose-Hulman Big Data</h1></a>
               </div>
             </div>
     </div>
@@ -47,6 +48,8 @@
             <div class="chart-wrapper">
               <div class="chart-title">Evaluations by Year</div>
               <div class="chart-stage">
+                <input type="text" id="year">
+                <button>Select year</button>
                 <div id="figure2" style="margin-bottom: 50px;"></div>
                 <!-- <div>This is cool, I can type anything in here</div> -->
               </div>

@@ -9,19 +9,12 @@ import pandas as pd
 
 app = Flask(__name__)
 
-# MONGODB_HOST = 'localhost'
-# MONGODB_PORT = 27017
-# DBS_NAME = 'donorschoose'
-# COLLECTION_NAME = 'projects'
-# FIELDS = {'school_state': True, 'resource_type': True, 'poverty_level': True, 'date_posted': True, 'total_donations': True, '_id': False}
+data = pd.DataFrame.from_csv('/home/jupyterflow/Documents/Big-Data-MVP/Teacher_Eval_Analysis/Shibberu_CourseEvalData_Raw_20160616.csv',index_col=None)
+data = data[['SURVEY_NAME','COURSE','QUESTION_NO','RESPONSE_1_COUNT','RESPONSE_2_COUNT','RESPONSE_3_COUNT','RESPONSE_4_COUNT','RESPONSE_5_COUNT']] # only taking the needed columns
+data = data[data.QUESTION_NO < 4] # removed non-standard evaluation questions
 
-def collectEvalByYear(year):
+def collectEvalByYear(year, data):
 	# take instructor data input here
-	data = pd.DataFrame.from_csv('/home/jupyterflow/Documents/Big-Data-MVP/Teacher_Eval_Analysis/Shibberu_CourseEvalData_Raw_20160616.csv',index_col=None)
-	data = data[['SURVEY_NAME','COURSE','QUESTION_NO','RESPONSE_1_COUNT','RESPONSE_2_COUNT','RESPONSE_3_COUNT',
-	             'RESPONSE_4_COUNT','RESPONSE_5_COUNT']] # only taking the needed columns
-	data = data[data.QUESTION_NO < 4] # removed non-standard evaluation questions
-
 	if year is not None:
 		data = data[data.SURVEY_NAME.str.contains('_' + year)]
 	# question description dictionary
@@ -53,30 +46,19 @@ def collectEvalByYear(year):
 	return lickert_counts.to_csv(index=False)
 
 
-@app.route("/index.html")
+@app.route("/")
 def index():
     return render_template("index.html")
 
 @app.route("/byYear/<year>")
 def byYear(year):
-	return collectEvalByYear(year)
+	if year == "all":
+		year = "";
+	return collectEvalByYear(year, data)
 
 @app.route("/new_index.html")
 def getEval():
     return render_template("new_index.html")
-
-# @app.route("/donorschoose/projects")
-# def donorschoose_projects():
-#     connection = MongoClient(MONGODB_HOST, MONGODB_PORT)
-#     collection = connection[DBS_NAME][COLLECTION_NAME]
-#     projects = collection.find(projection=FIELDS, limit=100000)
-#     #projects = collection.find(projection=FIELDS)
-#     json_projects = []
-#     for project in projects:
-#         json_projects.append(project)
-#     json_projects = json.dumps(json_projects, default=json_util.default)
-#     connection.close()
-#     return json_projects
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0',port=5000,debug=True)
