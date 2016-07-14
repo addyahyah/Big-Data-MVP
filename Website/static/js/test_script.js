@@ -3,12 +3,9 @@
 //     .await(makeGraphs);
 
 var id = "#figure";
-var q = queue();
-var val = q.defer(d3.csv,"/all")
-console.log(val);
 
 queue()
-	.defer(d3.csv, "/all")
+	.defer(d3.csv, "/byYear/2014")
 	.await(function(error, data){
 		makeGraphs(error,data);
 	});
