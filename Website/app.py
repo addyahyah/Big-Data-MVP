@@ -4,7 +4,6 @@ from pymongo import MongoClient
 import json
 from bson import json_util
 from bson.json_util import dumps
-# import produce_D3_data
 import pandas as pd
 
 app = Flask(__name__)
@@ -20,7 +19,7 @@ def collectEvalByYear(year, data):
 	# question description dictionary
 	questions = {1.04:'Quality of learning',
 	             2.03:'Lab and course reinforce',
-	             2.06:'Workload',
+	             2.06:'Lighter Workload',
 	             2.07:'Course overall',
 	             3.02:'Professor well-prepared',
 	             3.04:'Helpful teaching methods',
@@ -28,7 +27,6 @@ def collectEvalByYear(year, data):
 	             3.09:"Professor's interest in topic",
 	             3.1:'Professor overall'}
 
-	# Creating .csv File of Raw Data Counts
 	# total response counts/question
 	lickert_counts = data.drop(['SURVEY_NAME','COURSE'],1).groupby('QUESTION_NO').sum()
 
@@ -41,6 +39,7 @@ def collectEvalByYear(year, data):
 
 	# Changing data labels for D3 integration
 	lickert_counts['QUESTION_NO'] = lickert_counts['QUESTION_NO'].replace(questions)
+	# Setting .csv file format
 	lickert_counts.columns = ['Question','1','2','3','4','5','N']
 	lickert_counts.set_index('Question')
 	return lickert_counts.to_csv(index=False)
