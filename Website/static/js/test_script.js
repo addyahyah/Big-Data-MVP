@@ -27,6 +27,7 @@ function makeGraphs(error, data, id) {
 	    .scale(y)
 	    .orient("left");
 
+	//This line removes the old graph and add a new one in the selected id
 	d3.select(id).select("svg").remove();
 
 	var svg = d3.select(id).append("svg")
@@ -75,13 +76,13 @@ function makeGraphs(error, data, id) {
 
 	  var vakken = svg.selectAll(".question")
 	      .data(data)
-	    .enter().append("g")
+	      .enter().append("g")
 	      .attr("class", "bar")
 	      .attr("transform", function(d) { return "translate(0," + y(d.Question) + ")"; });
 
 	  var bars = vakken.selectAll("rect")
 	      .data(function(d) { return d.boxes; })
-	    .enter().append("g").attr("class", "subbar");
+	      .enter().append("g").attr("class", "subbar");
 
 	  bars.append("rect")
 	      .attr("height", y.rangeBand())

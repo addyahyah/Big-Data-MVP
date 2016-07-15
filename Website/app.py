@@ -58,23 +58,16 @@ def getDataCsv(data):
 def index():
     return render_template("index.html")
 
-@app.route("/byYear/<year>")
-def byYear(year):
-	if year == "all":
-		year = "";
-	return collectEvalByYear(year, data)
-
-<<<<<<< HEAD
-@app.route("/byCourse/<course>")
-def byCourse(course):
-	if course == "all":
-		course = "";
-	return collectEvalByCourse(course, data)
-
-@app.route("/new_index.html")
-=======
+@app.route("/<type>/<query>")
+def collect(type, query):
+	if query == "all":
+		return getDataCsv(data);
+	elif type == "byYear":
+		return collectEvalByYear(query, data)
+	elif type == "byCourse":
+		return collectEvalByCourse(query, data)
+		
 @app.route("/evaluation.html")
->>>>>>> 2326845d50551bec4d1ba96ffdb097ab2ba8fb3d
 def getEval():
     return render_template("evaluation.html")
 

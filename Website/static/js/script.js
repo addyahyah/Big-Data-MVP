@@ -1,10 +1,4 @@
-// queue()
-//  .defer(d3.csv, "/byYear/2014")
-//  .defer(d3.csv, "/byYear/all")
-//  .await(function(error, dataByYear, dataByAll){
-//    makeGraphs(error,dataByYear,"#figure2");
-//    makeGraphs(error,dataByAll,"#figure");
-//  });
+//This loads the data and execute the functions in await
 queue()
   .defer(d3.csv, "/byYear/all")
   .await(function(error, dataByAll){
@@ -31,13 +25,16 @@ function makeGraphs(error, data, id) {
 
   var yAxis = d3.svg.axis()
       .scale(y)
-      .orient("left")
+      .orient("left");
+
+  //This line removes the old graph and add a new one in the selected id
+  d3.select(id).select("svg").remove();
 
   var svg = d3.select(id).append("svg")
       .attr("width", width + margin.left + margin.right)
       .attr("height", height + margin.top + margin.bottom)
       .attr("id", "d3-plot")
-    .append("g")
+      .append("g")
       .attr("transform", "translate(" + (margin.left + 65) + "," + margin.top + ")");
       // U added margin left for 65 for the label to all show
     color.domain(["Strongly disagree", "Disagree", "Neither agree nor disagree", "Agree", "Strongly agree"]);
@@ -79,13 +76,13 @@ function makeGraphs(error, data, id) {
 
     var vakken = svg.selectAll(".question")
         .data(data)
-      .enter().append("g")
+        .enter().append("g")
         .attr("class", "bar")
         .attr("transform", function(d) { return "translate(0," + y(d.Question) + ")"; });
 
     var bars = vakken.selectAll("rect")
         .data(function(d) { return d.boxes; })
-      .enter().append("g").attr("class", "subbar");
+        .enter().append("g").attr("class", "subbar");
 
     bars.append("rect")
         .attr("height", y.rangeBand())
