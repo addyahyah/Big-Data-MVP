@@ -48,8 +48,9 @@
             <div class="chart-wrapper">
               <div class="chart-title">Evaluations by Year</div>
               <div class="chart-stage">
-                <input type="text" id="year">
-                <button>Select year</button>
+                <!-- This should not be hard coded in here -->
+                <input type="range" min = "2005" max = "2016" step = "1" id="year">
+                <div id=yearSelected>Select year</div>
                 <div id="figure2" style="margin-bottom: 50px;"></div>
                 <!-- <div>This is cool, I can type anything in here</div> -->
               </div>
@@ -60,7 +61,7 @@
 
     <hr>
     <p class="small text-muted">Built with &#9829; by <a href="https://keen.io">Keen IO</a></p>
-
+    <p>Chart visualization code modified from: <a href="http://bl.ocks.org/wpoely86/e285b8e4c7b84710e463#raw_data.csv">Diverging Stacked Bar Chart</a></p>
   </div>
 
   <script src="/static/lib/js/jquery.min.js"></script>

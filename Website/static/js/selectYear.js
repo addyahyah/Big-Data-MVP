@@ -1,10 +1,12 @@
 document.addEventListener("DOMContentLoaded",
   function (event) {
-    
     function selectYear (event) {
-      // this.textContent = "Said it!";
+      //This select the year value
       var year =
        document.getElementById("year").value;
+
+       //This change the display year
+      document.getElementById("yearSelected").innerHTML = year;
 
        queue()
         .defer(d3.csv, "/byYear/"+year)
@@ -12,11 +14,9 @@ document.addEventListener("DOMContentLoaded",
                 makeGraphs(error,dataByYear,"#figure2");
                 });
     }
-
     // Unobtrusive event binding
-    document.querySelector("button")
-      .addEventListener("click", selectYear);
-
+    document.querySelector("input")
+      .addEventListener("change", selectYear);
   }
 );
 

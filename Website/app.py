@@ -55,9 +55,9 @@ def byYear(year):
 		year = "";
 	return collectEvalByYear(year, data)
 
-@app.route("/new_index.html")
+@app.route("/evaluation.html")
 def getEval():
-    return render_template("new_index.html")
+    return render_template("evaluation.html")
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0',port=5000,debug=True)
