@@ -1,10 +1,15 @@
-# Copyright (c) 2015 Antonino Ingargiola
-# URL: https://github.com/tritemio/nbrun/tree/91e050931c347ae48a4f5a6b8995b04e397230a2
-# License: MIT
-# Modified for this project by Anna Scott with code by Benjamin RK
-# URL: https://gist.github.com/minrk/5491090
 """
-nbrun - Run an Jupyter/IPython notebook, optionally passing arguments.
+***************************************************************************************
+*    Title: nbrun.py
+*    Author: Antonino Ingargiola
+*    Date: Copyright (c) 2015
+*    License: MIT
+*    Availability:
+*      https://github.com/tritemio/nbrun/tree/91e050931c347ae48a4f5a6b8995b04e397230a2
+*    Modified for this project by Anna Scott with code by Benjamin RK
+***************************************************************************************
+
+Run an Jupyter/IPython notebook, optionally passing arguments.
 
 USAGE
 -----
@@ -15,7 +20,6 @@ execute the other notebooks.
 
 import os
 import io
-# import time
 import nbformat
 from IPython import get_ipython
 from nbconvert.preprocessors import ExecutePreprocessor
@@ -43,7 +47,7 @@ def dict_to_code(mapping):
     return '\n'.join(lines)
 
 def run_notebook(notebook_name, nb_kwargs=None,
-                 insert_pos=2, timeout=120, execute_kwargs=None):
+                 insert_pos=5, timeout=120, execute_kwargs=None):
     """Runs a notebook and displays the output in the master notebook.
 
     Executes a notebook, optionally passing "arguments" in a way roughly
@@ -62,7 +66,7 @@ def run_notebook(notebook_name, nb_kwargs=None,
             names and values variables content. This string is inserted as
             code-cell in the notebook to be executed.
         insert_pos (int): position of insertion of the code-cell containing
-            the input arguments. Default is 2 (i.e. third cell). With this
+            the input arguments. Default is 5 (i.e. sixth cell). With this
             default, the input notebook can define, in the first cell, default
             values of input arguments (used when the notebook is executed
             with no arguments or through the Notebook GUI).
@@ -85,11 +89,18 @@ def run_notebook(notebook_name, nb_kwargs=None,
     try:
         # Execute the notebook
         ep.preprocess(nb, {'metadata': {'path': './'}})
+#*****************************************
+#    Title: analysis.ipynb
+#    Author: Benjamin RK
+#    Date: April 2013
+#    Availability: https://gist.github.com/minrk/5491090
+
         ip = get_ipython()
         for cell in nb.cells:
             if cell.cell_type != 'code':
                 continue
             ip.run_cell(cell.source)
+#*****************************************
     except:
         # Execution failed, print a message then raise.
         msg = 'Error executing the notebook "%s".\n\n' % notebook_name
