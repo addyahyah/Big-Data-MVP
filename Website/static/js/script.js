@@ -1,12 +1,17 @@
-var id = "#figure";
-
+// queue()
+//  .defer(d3.csv, "/byYear/2014")
+//  .defer(d3.csv, "/byYear/all")
+//  .await(function(error, dataByYear, dataByAll){
+//    makeGraphs(error,dataByYear,"#figure2");
+//    makeGraphs(error,dataByAll,"#figure");
+//  });
 queue()
-  .defer(d3.csv, "/byYear/2010")
-  .await(function(error, path){
-    makeGraphs(error,path);
+  .defer(d3.csv, "/byYear/all")
+  .await(function(error, dataByAll){
+    makeGraphs(error,dataByAll,"#figure");
   });
 
-function makeGraphs(error, path) {
+function makeGraphs(error, data, id) {
   var margin = {top: 50, right: 20, bottom: 10, left: 65},
     width = 800 - margin.left - margin.right,
     height = 400 - margin.top - margin.bottom;
@@ -38,7 +43,7 @@ function makeGraphs(error, path) {
     color.domain(["Strongly disagree", "Disagree", "Neither agree nor disagree", "Agree", "Strongly agree"]);
 
     //data should be related to the server dirctory
-    d3.csv(path, function(error, data) {
+    // d3.csv(path, function(error, data) {
 
     data.forEach(function(d) {
       // calc percentages
@@ -148,11 +153,8 @@ function makeGraphs(error, path) {
     var movesize = width/2 - startp.node().getBBox().width/2;
     d3.selectAll(".legendbox").attr("transform", "translate(" + movesize  + ",0)");
 
-  });
+    // var slider = d3.slider().axis(true);
+    // var pos = 0;
+    // d3.select('#slider-button').on('click', function() { slider.slide_to(++pos); });
 };
 
-// make_graph("#figure", "/data/raw_data.csv");
-
-// make_graph("#figure2", "/data/raw_data2.csv");
-
-// make_graph("#figure3", "raw_data.csv");

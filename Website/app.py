@@ -64,6 +64,7 @@ def byYear(year):
 		year = "";
 	return collectEvalByYear(year, data)
 
+<<<<<<< HEAD
 @app.route("/byCourse/<course>")
 def byCourse(course):
 	if course == "all":
@@ -71,8 +72,11 @@ def byCourse(course):
 	return collectEvalByCourse(course, data)
 
 @app.route("/new_index.html")
+=======
+@app.route("/evaluation.html")
+>>>>>>> 2326845d50551bec4d1ba96ffdb097ab2ba8fb3d
 def getEval():
-    return render_template("new_index.html")
+    return render_template("evaluation.html")
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0',port=5000,debug=True)
