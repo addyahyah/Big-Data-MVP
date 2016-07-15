@@ -8,14 +8,23 @@ import pandas as pd
 
 app = Flask(__name__)
 
+# take instructor data input here
 data = pd.DataFrame.from_csv('/home/jupyterflow/Documents/Big-Data-MVP/Teacher_Eval_Analysis/Shibberu_CourseEvalData_Raw_20160616.csv',index_col=None)
+
 data = data[['SURVEY_NAME','COURSE','QUESTION_NO','RESPONSE_1_COUNT','RESPONSE_2_COUNT','RESPONSE_3_COUNT','RESPONSE_4_COUNT','RESPONSE_5_COUNT']] # only taking the needed columns
 data = data[data.QUESTION_NO < 4] # removed non-standard evaluation questions
 
 def collectEvalByYear(year, data):
-	# take instructor data input here
 	if year is not None:
 		data = data[data.SURVEY_NAME.str.contains('_' + year)]
+	return getDataCsv(data)
+
+def collectEvalByCourse(course, data):
+	if course is not None:
+		data = data[data.COURSE.str.startswith(course)]
+	return getDataCsv(data)
+
+def getDataCsv(data):
 	# question description dictionary
 	questions = {1.04:'Quality of learning',
 	             2.03:'Lab and course reinforce',
@@ -54,6 +63,12 @@ def byYear(year):
 	if year == "all":
 		year = "";
 	return collectEvalByYear(year, data)
+
+@app.route("/byCourse/<course>")
+def byCourse(course):
+	if course == "all":
+		course = "";
+	return collectEvalByCourse(course, data)
 
 @app.route("/new_index.html")
 def getEval():
