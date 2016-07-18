@@ -1,5 +1,5 @@
 
-#JupyterHub Setup for Rose-Hulman   
+#Installation of JupyterHub  
 This tutorial replicates and extends from the [JupyterHub Pydata 2016](https://github.com/minrk/jupyterhub-pydata-2016/blob/master/JupyterHub.pdf)
 ###Installing Anaconda Package   
 Jupyterhub requires python3, therefore we will use [Anaconda3 package](https://www.continuum.io/downloads) in this tutorial.
