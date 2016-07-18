@@ -33,7 +33,7 @@ conda config --add channels conda-forge
 ```
 
 ###Installing Docker(Optional)
-Follow this link to instal docker  
+Follow this link to install docker  
 [Docker.io](https://docs.docker.com/engine/installation/linux/ubuntulinux/)
 
 ###Adding Python2 and R to your Jupyerhub
