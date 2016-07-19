@@ -8,7 +8,7 @@ import pandas as pd
 
 app = Flask(__name__)
 
-# take instructor data input here
+# take instructor data input here, to use your own data, just change the path and match the giving format
 data = pd.DataFrame.from_csv('/home/jupyterflow/Documents/Big-Data-MVP/Teacher_Eval_Analysis/Shibberu_CourseEvalData_Raw_20160616.csv',index_col=None)
 
 data = data[['SURVEY_NAME','COURSE','QUESTION_NO','RESPONSE_1_COUNT','RESPONSE_2_COUNT','RESPONSE_3_COUNT','RESPONSE_4_COUNT','RESPONSE_5_COUNT']] # only taking the needed columns
@@ -72,4 +72,4 @@ def getEval():
     return render_template("evaluation.html")
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0',port=5000,debug=True)
+    app.run(host='0.0.0.0',port=80,debug=True)
