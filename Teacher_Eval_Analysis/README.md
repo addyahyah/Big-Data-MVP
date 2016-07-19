@@ -9,6 +9,7 @@ Most of the below packages should come included with [Anaconda](https://www.cont
 - [pandas](http://pandas.pydata.org/)
 - [jupyter notebook](http://jupyter.org/)
 - [ipywidgets](https://ipywidgets.readthedocs.io/en/latest/user_install.html) *must be installed separately*
+
 Also, please make sure your data files have the same layout and format as the provided `Shibberu_CourseEvalData_Raw_20160616.csv` example file. Since the data usually comes as an .xlxs Excel file, open the given file and check the data headers, then save a .csv copy to this directory.
 
 ## Instructions
