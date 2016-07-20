@@ -1,54 +1,49 @@
+# Setting Up JupyterHub
+This tutorial replicates and extends the information in the [JupyterHub Pydata 2016](https://github.com/minrk/jupyterhub-pydata-2016/blob/master/JupyterHub.pdf) presentation.
+## Installation
+JupyterHub requires Python 3.3+, so first download the Python 3.5 version of [Anaconda](https://www.continuum.io/downloads).
 
-#Installation of JupyterHub  
-This tutorial replicates and extends from the [JupyterHub Pydata 2016](https://github.com/minrk/jupyterhub-pydata-2016/blob/master/JupyterHub.pdf)
-###Installing Anaconda Package   
-Jupyterhub requires python3, therefore we will use [Anaconda3 package](https://www.continuum.io/downloads) in this tutorial.
-Make sure you installed the package in this repository. 
+When asked, make sure the package will be installed to this directory:
 ```
 /opt/anaconda3/
 ```
-Then add the bin file path to your .bashrc and root user's .bashrc
+Then add the bin file path to your .bashrc and root user's .bashrc in the command line:
 ```{r, engine='bash', count_lines}
 export PATH=”$PATH:/opt/anaconda3/bin"
 ```
-###Installing JupyterHub
-To do so use type in the following
+Type the following into the command line to install JupyterHub:
 ```
 conda install -c conda-forge jupyterhub
 ```
-You do not have to install notebook if you only run a server, but you could by typing the following:
+## Optional Steps
+You do not have to install Jupyter Notebook if you are only running a server, but you could by typing the following:
 ```
 conda install notebook
 ```
-Optional step:  
-Using minrk's github repo which will help you install oauthenticator, dockerspawner and netifaces 
+Using minrk's github repo will help you install oauthenticator, dockerspawner, and netifaces:
 ```
 git clone https://github.com/minrk/jupyterhub-pydata-2016 /srv/jupyterhub
 cd /srv/jupyterhub
 conda env create -f environment.yml
 ```
-Then add the conda-forge channel for have it manage packages for you
+This line adds the conda-forge channel for package management:
 ```
 conda config --add channels conda-forge
 ```
 
-###Installing Docker(Optional)
-Follow this link to install docker  
-[Docker.io](https://docs.docker.com/engine/installation/linux/ubuntulinux/)
+### Installing Docker
+Install Docker here: [Docker.io](https://docs.docker.com/engine/installation/linux/ubuntulinux/)
 
-###Adding Python2 and R to your Jupyerhub
-For Python2
+### Adding Python2 and R to your JupyerHub
+Python2:
 ```
 conda create -n py2 python=2 anaconda
 source activate py2
 ipython kernel install
 ```
-For R
+R:
 ```
 conda install -c r r-essentials
 conda create -n my-r-env -c r r-essentials
 ```
-For more in depth on R package, your could checkout Christine Doig's blog [Jupyter and Conda for R](https://www.continuum.io/blog/developer/jupyter-and-conda-r)
-
-
-
+For more in-depth information on using R in the Jupyter Notebook environment, check out Christine Doig's blog [Jupyter and Conda for R](https://www.continuum.io/blog/developer/jupyter-and-conda-r).
