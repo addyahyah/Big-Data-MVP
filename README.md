@@ -15,7 +15,11 @@ Type the following into the command line to install JupyterHub:
 ```
 conda install -c conda-forge jupyterhub
 ```
-## Optional Steps
+This line adds the conda-forge channel for package management:
+```
+conda config --add channels conda-forge
+```
+### Optional Steps
 You do not have to install Jupyter Notebook if you are only running a server, but you could by typing the following:
 ```
 conda install notebook
@@ -25,10 +29,6 @@ Using minrk's github repo will help you install oauthenticator, dockerspawner, a
 git clone https://github.com/minrk/jupyterhub-pydata-2016 /srv/jupyterhub
 cd /srv/jupyterhub
 conda env create -f environment.yml
-```
-This line adds the conda-forge channel for package management:
-```
-conda config --add channels conda-forge
 ```
 
 ### Installing Docker
