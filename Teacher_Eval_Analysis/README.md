@@ -1,6 +1,6 @@
 # Course Evaluation Data Analysis
 ## Synopsis
-This project was started in Summer 2016 to promote the existence and usage of Big Data at Rose-Hulman Institute of Technology. To this end, Professor Yosi Shibberu agreed to release all of his Student Course Evaluation data for school years since 2004-05. Using the provided data as the basis, the files in this folder are an analysis tool for other professors of Rose-Hulman to visualize their Evaluation data either cumulatively or aggregated by year or course in the form of diverging stacked bar charts.
+This project was started in Summer 2016 to promote the existence and usage of Big Data at Rose-Hulman Institute of Technology. To this end, Professor Yosi Shibberu agreed to release all of his Student Course Evaluation data for school years since 2004-05. Using this provided data as the basis, the files in this directory are analysis tools for other professors of Rose-Hulman to visualize their Evaluation data within the Jupyter Notebook in the form of diverging stacked bar charts, either cumulatively or aggregated by year or course.
 
 ## Dependencies
 Most of the below packages should come included with [Anaconda](https://www.continuum.io/downloads) unless otherwise noted:
@@ -23,7 +23,7 @@ print("Evaluating data for: " + filename)
 ```
 Then go to the `Cell` menu and choose `Run All` to select options and get chart outputs.
 ### Low-Level Data Analysis
-Alternatively, the `data_analysis.ipynb` notebook can be used on its own, apart from the main dashboard, with working knowledge of the `pandas` data analysis library and the Course Evaluation data itself.  The data file, year, and course options can be changed manually in the Instructor Data Input cell:
+Alternatively, the `data_analysis.ipynb` notebook can be used on its own, apart from the main dashboard, with working knowledge of the `pandas` data analysis library and the Course Evaluation data itself. The data file, year, and course options (and, by extension, the Dashboard defaults) can be changed manually in the Instructor Data Input cell:
 ```python
 # INSTRUCTOR DATA INPUT
 data = pd.DataFrame.from_csv('Shibberu_CourseEvalData_Raw_20160616.csv',index_col=None)
