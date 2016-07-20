@@ -19,7 +19,7 @@ This line adds the conda-forge channel for package management:
 ```
 conda config --add channels conda-forge
 ```
-### Optional Steps
+## Optional Steps
 You do not have to install Jupyter Notebook if you are only running a server, but you could by typing the following:
 ```
 conda install notebook
