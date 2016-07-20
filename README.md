@@ -1,5 +1,5 @@
 # Setting Up JupyterHub
-This tutorial replicates and extends the information in the [JupyterHub Pydata 2016](https://github.com/minrk/jupyterhub-pydata-2016/blob/master/JupyterHub.pdf) presentation.
+This tutorial replicates and extends the information in the [JupyterHub PyData 2016](https://github.com/minrk/jupyterhub-pydata-2016/blob/master/JupyterHub.pdf) presentation.
 ## Installation
 JupyterHub requires Python 3.3+, so first download the Python 3.5 version of [Anaconda](https://www.continuum.io/downloads).
 
