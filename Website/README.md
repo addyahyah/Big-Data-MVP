@@ -13,6 +13,6 @@ To kill the website, search for the process first, then kill it
 lsof -i tcp:80
 kill #app.py pid#
 ```
-In order to have d3 to display the graph, the data has to be passed in the following format:
+In order to have d3 to display the graph, the data has to be passed in the following format, the number of rows are arbitrary:
 
 ![Image of data format](https://github.com/shibberu/Big-Data-MVP/blob/master/Website/data/Required%20Data%20format.png)
