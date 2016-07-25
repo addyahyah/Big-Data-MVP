@@ -15,4 +15,4 @@ kill #app.py pid#
 ```
 In order to have d3 to display the graph, the data has to be passed in the following format:
 
-![Image of data format](https://github.com/shibberu/Big-Data-MVP/tree/master/Website/data/Required Data format.png)
+![Image of data format](https://github.com/shibberu/Big-Data-MVP/blob/master/Website/data/Required%20Data%20format.png)
