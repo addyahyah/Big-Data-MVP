@@ -65,13 +65,13 @@ Install Docker here: [Docker.io](https://docs.docker.com/engine/installation/lin
 ### Adding Python2 and R to your JupyerHub
 Python2:
 ```
-conda create -n py2 python=2 anaconda
-source activate py2
-ipython kernel install
+root: conda create -n py2 python=2 anaconda
+root: source activate py2
+root: ipython kernel install
 ```
 R:
 ```
-conda install -c r r-essentials
-conda create -n my-r-env -c r r-essentials
+root: conda install -c r r-essentials
+root: conda create -n my-r-env -c r r-essentials
 ```
 For more in-depth information on using R in the Jupyter Notebook environment, check out Christine Doig's blog [Jupyter and Conda for R](https://www.continuum.io/blog/developer/jupyter-and-conda-r).
