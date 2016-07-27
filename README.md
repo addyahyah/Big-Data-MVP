@@ -37,28 +37,28 @@ export PATH=”$PATH:/opt/anaconda3/bin"
 ```
 Type the following into the command line to install JupyterHub:
 ```
-root: conda install -c conda-forge jupyterhub
+conda install -c conda-forge jupyterhub
 ```
 This line adds the conda-forge channel for package management:
 ```
-root: conda config --add channels conda-forge
+conda config --add channels conda-forge
 ```
 In order to run Jupyterhub without ssl
 ```
-root: mkdir /srv/jupyterhub
-root: cd /srv/jupyterhub
-root: jupyterhub --no-ssl
+mkdir /srv/jupyterhub
+cd /srv/jupyterhub
+jupyterhub --no-ssl
 ```
 ## Optional Steps
 You do not have to install Jupyter Notebook if you are only running a server, but you could by typing the following:
 ```
-root: conda install notebook
+conda install notebook
 ```
 Using minrk's github repo will help you install oauthenticator, dockerspawner, and netifaces:
 ```
 git clone https://github.com/minrk/jupyterhub-pydata-2016 /srv/jupyterhub
-root: cd /srv/jupyterhub
-root: conda env create -f environment.yml
+cd /srv/jupyterhub
+conda env create -f environment.yml
 ```
 ### Installing Docker
 Install Docker here: [Docker.io](https://docs.docker.com/engine/installation/linux/ubuntulinux/)
@@ -66,14 +66,14 @@ Install Docker here: [Docker.io](https://docs.docker.com/engine/installation/lin
 ### Adding Python2 and R to your JupyerHub
 Python2:
 ```
-root: conda create -n py2 python=2 anaconda
-root: source activate py2
-root: ipython kernel install
+conda create -n py2 python=2 anaconda
+source activate py2
+ipython kernel install
 ```
 R:
 ```
-root: conda install -c r r-essentials
-root: conda create -n my-r-env -c r r-essentials
+conda install -c r r-essentials
+conda create -n my-r-env -c r r-essentials
 ```
 For more in-depth information on using R in the Jupyter Notebook environment, check out Christine Doig's blog [Jupyter and Conda for R](https://www.continuum.io/blog/developer/jupyter-and-conda-r).
 
