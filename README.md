@@ -12,7 +12,7 @@ In this case, we installed Anaconda3 using root privilege.
 ```
 su
 ```
-//enter your su password
+Then enter your su password
 
 To set a password for su
 ```
