@@ -1,6 +1,12 @@
 # Rose-Hulman Big Data Website
 
 To run this web app, you need to install flask in your python environment. In this project, "screen" was used to have the app run in the background.  
+
+Special step needed for Jupyterflow machine:
+'''
+source activate py2
+'''
+
 To serve the website, type the following in the command line:
 ```
 screen
