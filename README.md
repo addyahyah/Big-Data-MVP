@@ -11,8 +11,9 @@ JupyterHub requires Python 3.3+, so first download the Python 3.5 version of [An
 In this case, we installed Anaconda3 using root privilege.
 ```
 su
-//enter your su password
 ```
+//enter your su password
+
 To set a password for su
 ```
 sudo passwrd
