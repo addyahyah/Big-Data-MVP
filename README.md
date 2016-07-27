@@ -84,12 +84,12 @@ sudo nbgrader extension activate
 ```
  For each user who needs to create assignments, they need to enter the last in their command line as well
 
-### Tensorflow with graphics compatibility(Optional):
+### Tensorflow with graphics compatibility:
 I followed this [Korean link](https://www.youtube.com/watch?v=zJTvx0hievk) and installed the tensorflow package. For the record, I do not understand any Korean, all I did was follow the lines he typed.
 The official site is [here](https://www.tensorflow.org/versions/r0.9/get_started/os_setup.html#optional-install-cuda-gpus-on-linux)
 
 
-### Special Instructions for Jupyterflow machine:
+## Special Instructions for Jupyterflow machine:
 To use Graphics card on Tensorflow, type this in command line then start Jupyterhub:
 '''
 sudo ldconfig /usr/local/cuda/lib64
