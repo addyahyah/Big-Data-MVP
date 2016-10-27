@@ -16,7 +16,7 @@ Then enter your su password
 
 To set a password for su
 ```
-sudo passwrd
+sudo passwd
 ```
 To install anaconda do
 ```
